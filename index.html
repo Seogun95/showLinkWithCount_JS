@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="link-info-container">
+            <p id="li-title">버튼을 클릭하면 다운로드 링크가 나타납니다.</p>
+            <button id="click-link" onclick="startDownload()">다운로드</button>
+        </div>
+
+        <div class="tt-video-container">
+            <p style="text-align: center" data-ke-size="size16"><span class="tt-link-title">아래 이미지를 클릭해 설치파일을 다운 받아주세요.</span></p>
+            <div class="tt-video link">
+                <a href="https://drive.google.com/file/d/1IY7tMD_DKkiiNrfaeKEZ6Vt0GGd_7Knj/view?usp=sharing" target="_blank" rel="noopener"
+                    ><img
+                        src="https://blog.kakaocdn.net/dn/bSfWpQ/btrJTO8IRFJ/KQwiv8OWt7Kue93NtQZNf1/img.png"
+                        alt="[MAC] M1 호환 Downie V4.5.8 크랙 다운로드 - 다운 로드"
+                        title="[MAC] M1 호환 Downie V4.5.8 크랙 다운로드 - 다운 로드"
+                        style="width: 390px; height: 220px; opacity: 1"
+                        data-src="https://blog.kakaocdn.net/dn/bSfWpQ/btrJTO8IRFJ/KQwiv8OWt7Kue93NtQZNf1/img.png"
+                        class="lazyload" />
+                    <video autoplay="autoplay" loop="loop" muted="" width="320" height="240">
+                        <source src="https://media.istockphoto.com/videos/laptop-with-file-folder-animation-video-id1333461485" type="video/mp4" /></video
+                ></a>
+            </div>
+        </div>
+
+        <script>
+            document.querySelector('.tt-video-container').style.display = 'none';
+            function startDownload() {
+                // Set the date we're counting down to
+                var countDownDate = new Date().setSeconds(new Date().getSeconds() + 10);
+                document.getElementById('click-link').style.visibility = 'hidden';
+
+                // Update the count down every 1 second
+                var x = setInterval(function () {
+                    // Get today's date and time
+                    var now = new Date().getTime();
+
+                    // Find the distance between now and the count down date
+                    var distance = countDownDate - now;
+
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Output the result in an element with id="demo"
+                    document.getElementById('li-title').innerHTML = `다운로드 링크가 ${seconds}초 후에 나타납니다.`;
+
+                    // If the count down is over, write some text and show button to download
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.querySelector('.link-info-container').style.display = 'none';
+                        document.querySelector('.tt-video-container').style.display = 'flex';
+                    }
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>
