@@ -7,10 +7,10 @@
     <body>
         <div class="link-info-container">
             <p id="li-title">버튼을 클릭하면 다운로드 링크가 나타납니다.</p>
-            <button id="click-link" onclick="startDownload()">다운로드</button>
+            <button id="click-link">다운로드</button>
         </div>
 
-        <div class="tt-video-container">
+        <div class="tt-video-container link">
             <p style="text-align: center" data-ke-size="size16"><span class="tt-link-title">아래 이미지를 클릭해 설치파일을 다운 받아주세요.</span></p>
             <div class="tt-video link">
                 <a href="https://drive.google.com/file/d/1IY7tMD_DKkiiNrfaeKEZ6Vt0GGd_7Knj/view?usp=sharing" target="_blank" rel="noopener"
@@ -28,6 +28,11 @@
         </div>
 
         <script>
+            const linkBtn = document.getElementById('click-link');
+            linkBtn.onclick = function (event) {
+                startDownload();
+            };
+
             document.querySelector('.tt-video-container').style.display = 'none';
             function startDownload() {
                 // Set the date we're counting down to
@@ -46,12 +51,13 @@
 
                     // Output the result in an element with id="demo"
                     document.getElementById('li-title').innerHTML = `다운로드 링크가 ${seconds}초 후에 나타납니다.`;
+                    document.getElementById('li-title').addClass('dd');
 
                     // If the count down is over, write some text and show button to download
                     if (distance < 0) {
                         clearInterval(x);
                         document.querySelector('.link-info-container').style.display = 'none';
-                        document.querySelector('.tt-video-container').style.display = 'flex';
+                        document.querySelector('.tt-video-container.link').style.display = 'flex';
                     }
                 }, 1000);
             }
